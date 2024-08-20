@@ -4,38 +4,43 @@ import java.util.ArrayList;
 
 public class Carrera {
 
-	private String especialidad;
 	private ArrayList<Atleta> atletas;
-	
-	public Carrera(String especialidad) {
+
+	public Carrera() {
 		this.atletas = new ArrayList<>();
-		this.especialidad = especialidad;
 	}
 
-	public ArrayList<Atleta> getAtletas() {
-		return atletas;
+	public String getAtletas() {
+		return this.atletas.toString();
 	}
-	
-	//despues filtramos por especialidad (ej 100mts, 400mts)
-	// 
-	public void getGanador() {
-		int index = 0;
-		Atleta ganador = null;
-		double minSegundos = 0;
+
+	public void agregarAtleta(Atleta atleta) {
+		if(atleta != null) this.atletas.add(atleta);
+	}
+
+	public ArrayList<Atleta> getGanador() {
+
+		//asumimos que el primer atleta es el mas rapido
+		double minSegundos = atletas.get(0).getSegundos();
 		ArrayList<Atleta> ganadores = new ArrayList<>();
-		
-		
-		//revisar condicion para cuando hay mas de un ganador revisar esoq onda
-		while(index < atletas.size() && ganador == null || ganadores.isEmpty()) {
-			if(atletas.get(index).getSegundos() <= minSegundos) {
-				minSegundos = atletas.get(index).getSegundos();
-				ganador = atletas.get(index);
+		ganadores.add(atletas.get(0));
+
+		//recorro todos los atletas
+		for (int i = 1; i < atletas.size(); i++) {
+			Atleta atleta = atletas.get(i);
+
+			if (atleta.getSegundos() <= minSegundos) {
+				if (atleta.getSegundos() < minSegundos) {
+					minSegundos = atleta.getSegundos();
+					ganadores.clear();
+				}
+				ganadores.add(atleta);
 			}
-			index++;
 		}
+		return ganadores;
 	}
-	
-	
-	
-	
+
+
+
+
 }
