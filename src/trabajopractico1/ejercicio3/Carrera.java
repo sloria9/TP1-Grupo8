@@ -40,6 +40,32 @@ public class Carrera {
 		}
 		return null;
 	}
+	
+    public Terna getTernaGanadora() {
+        Terna ternaGanadora = null;
+        double bestTime = Double.MAX_VALUE;
+
+        for (Terna terna : ternas) {
+            double fastestTimeInTerna = findFastestTime(terna);
+
+            if (fastestTimeInTerna < bestTime) {
+                bestTime = fastestTimeInTerna;
+                ternaGanadora = terna;
+            }
+        }
+
+        return ternaGanadora;
+    }
+
+    private double findFastestTime(Terna terna) {
+        double fastestTime = Double.MAX_VALUE;
+        for (Atleta atleta : terna.getAtletasList()) {
+            if (atleta.getSegundos() < fastestTime) {
+                fastestTime = atleta.getSegundos();
+            }
+        }
+        return fastestTime;
+    }
 
 
 

@@ -20,6 +20,10 @@ public class Terna {
 		return this.atletas.toString();
 	}
 	
+	public ArrayList<Atleta> getAtletasList() {
+		return this.atletas;
+	}
+	
 	public void agregarAtleta(Atleta atleta) {
 		if(atleta != null) this.atletas.add(atleta);
 	}
@@ -44,6 +48,11 @@ public class Terna {
 			}
 		}
 		return ganadores;
+	}
+	
+	@Override
+	public String toString() {
+		return " Nombre de la terna: " + nombreTerna;
 	}
 	
 }

@@ -58,6 +58,7 @@ public class JuegosOlimpicos {
 		ArrayList<Atleta> ganadores400 = terna400mts.getGanadores();
 		System.out.println("Ganadores del 400mts: " + ganadores400);
 		
+		System.out.println("La terna ganadora es: " + carrera.getTernaGanadora());
 	}
 
 }
