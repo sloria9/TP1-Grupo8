@@ -8,9 +8,6 @@ public class Vivienda {
 	private int idVivienda;
 	private static int cantVivienda=1;
 	private Direccion direccion;
-	public Direccion getDireccion() {
-		return direccion;
-	}
 
 	private List<Persona> personas;
 	private List<Mueble> muebles;
@@ -23,7 +20,7 @@ public class Vivienda {
 		this.muebles = new ArrayList<Mueble>();
 	}
 	
-	public void setIdVivienda() {
+	private void setIdVivienda() {
 		this.idVivienda = cantVivienda++;
 	}
 
@@ -43,11 +40,6 @@ public class Vivienda {
 	 */
 	public void setDireccion(String calle, int altura, int piso, String dpto) {
 		this.direccion = new Direccion(calle, altura, piso, dpto);
-	}
-	
-	public static Direccion crearVivienda(String direccion, int altura, int piso, String dpto) {
-		Direccion nuevaVivienda = new Direccion(direccion, altura, piso, dpto);
-		return nuevaVivienda;
 	}
 	
 	public String agregarPersona(String nombre, String apellido, int edad) {
@@ -70,21 +62,12 @@ public class Vivienda {
 		return nuevoMueble.toString();
 	}
 	
-	
 	public List<Persona> getPersonas() {
 		return personas;
 	}
 
-	public void setPersonas(List<Persona> personas) {
-		this.personas = personas;
-	}
-
 	public List<Mueble> getMuebles() {
 		return muebles;
-	}
-
-	public void setMuebles(List<Mueble> muebles) {
-		this.muebles = muebles;
 	}
 
 	public String recuperarInfoVivienda() {
@@ -101,6 +84,5 @@ public class Vivienda {
 		this.personas.clear();
 		this.muebles.clear();
 	}
-	
 	
 }
