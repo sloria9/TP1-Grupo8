@@ -2,9 +2,8 @@ package arreglosyherencia.ejcurso;
 
 public class AlumnoConfirmado extends Inscripto{
 	
-
 	private static int cantAlumnos=1;
-	private int nroAlumno;
+	private String nroAlumno;
 
 	public AlumnoConfirmado(String nombre, int edad, String direccion, String tituloCurso) {
 		super(nombre, edad, direccion, tituloCurso);
@@ -12,13 +11,10 @@ public class AlumnoConfirmado extends Inscripto{
 	}
 	
 	
-	public int getNroAlumno() {
+	public String getNroAlumno() {
 		return nroAlumno;
 	}
-
 	public void setNroAlumno() {
-		this.nroAlumno = cantAlumnos++;
+		this.nroAlumno = "ALU-"+cantAlumnos++;
 	}
-	
-	
 }

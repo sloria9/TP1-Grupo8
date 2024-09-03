@@ -66,4 +66,12 @@ public class Centro {
 		return encontro;
 	}
 	
+	public List<Double> informarPagoDocentes() {
+		List<Double> pagos = new ArrayList<Double>();
+		for(Profesor profesor: profesores) {
+			pagos.add(profesor.informarCostoCursos());
+		}
+		return pagos;
+	}
+	
 }
